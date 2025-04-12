@@ -1,8 +1,8 @@
 package com.inventoryapp.services;
 
 import com.inventoryapp.dtos.ProductDTO;
-import com.inventoryapp.entities.CategoryEntity;
-import com.inventoryapp.entities.ProductEntity;
+import com.inventoryapp.entities.Category;
+import com.inventoryapp.entities.Product;
 import com.inventoryapp.repositories.CategoryRepository;
 import com.inventoryapp.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,36 +20,36 @@ public class ProductServicesImpl implements ProductServices{
     private CategoryRepository categoryRepository;
 
     @Override
-    public List<ProductEntity> findAll() {
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
 
     @Override
-    public ProductEntity findById(Long id) {
+    public Product findById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
 
     @Override
-    public ProductEntity findByName(String name) {
+    public Product findByName(String name) {
         return productRepository.findByName(name);
     }
 
     @Override
-    public ProductEntity findByCode(String code) {
+    public Product findByCode(String code) {
         return productRepository.findByCode(code);
     }
 
     @Override
-    public List<ProductEntity> findByCategory(String categoryName) {
-        CategoryEntity category = categoryRepository.findByName(categoryName);
+    public List<Product> findByCategory(String categoryName) {
+        Category category = categoryRepository.findByName(categoryName);
         return productRepository.findByCategory(category);
     }
 
     @Override
-    public ProductEntity save(ProductDTO product) {
-        CategoryEntity category = categoryRepository.findById(product.getCategoryId()).orElse(null);
+    public Product save(ProductDTO product) {
+        Category category = categoryRepository.findById(product.getCategoryId()).orElse(null);
 
-        ProductEntity productEntity = new ProductEntity();
+        Product productEntity = new Product();
         productEntity.setCode(product.getCode());
         productEntity.setName(product.getName());
         productEntity.setDescription(product.getDescription());
@@ -62,8 +62,8 @@ public class ProductServicesImpl implements ProductServices{
     }
 
     @Override
-    public ProductEntity update(Long id, ProductEntity product) {
-        ProductEntity productUpdated = findById(id);
+    public Product update(Long id, Product product) {
+        Product productUpdated = findById(id);
         productUpdated.setId(id);
         productUpdated.setName(product.getName());
 //        productUpdated.setCategory(product.getCategory());

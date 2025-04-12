@@ -1,11 +1,9 @@
 package com.inventoryapp.repositories;
 
-import com.inventoryapp.entities.Category;
+import com.inventoryapp.entities.Warehouse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Long> {
-
-    Category findByName(String name);
+public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {
 }
