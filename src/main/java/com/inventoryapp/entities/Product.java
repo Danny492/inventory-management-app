@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,13 +34,10 @@ public class Product {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private Supplier supplier;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private LocationStock locationStock;
-//
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "product_warehouse", joinColumns = @JoinColumn(name = "product"), inverseJoinColumns = @JoinColumn(name = "warehouse"))
+    private Set<Warehouse> warehouses;
 
     private Boolean available;
 
