@@ -1,6 +1,6 @@
 package com.inventoryapp.controllers;
 
-import com.inventoryapp.entities.Category;
+import com.inventoryapp.dtos.CategoryDTO;
 import com.inventoryapp.services.CategoryServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,22 +15,22 @@ public class CategoryController {
     private CategoryServices categoryServices;
 
     @GetMapping
-    public List<Category> getAllProducts() {
+    public List<CategoryDTO> getAllProducts() {
         return categoryServices.findAll();
     }
 
     @GetMapping("/{id}")
-    public Category getProductById(@PathVariable Long id) {
+    public CategoryDTO getProductById(@PathVariable Long id) {
         return categoryServices.findById(id);
     }
 
     @PostMapping
-    public Category createProduct(@RequestBody Category category) {
+    public CategoryDTO createProduct(@RequestBody CategoryDTO category) {
         return categoryServices.save(category);
     }
 
     @PutMapping("/{id}")
-    public Category updateProduct(@PathVariable Long id, @RequestBody Category category) {
+    public CategoryDTO updateProduct(@PathVariable Long id, @RequestBody CategoryDTO category) {
         return categoryServices.update(id, category);
     }
 

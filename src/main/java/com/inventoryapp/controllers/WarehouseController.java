@@ -1,6 +1,6 @@
 package com.inventoryapp.controllers;
 
-import com.inventoryapp.entities.Warehouse;
+import com.inventoryapp.dtos.WarehouseDTO;
 import com.inventoryapp.services.WarehouseServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,22 +15,22 @@ public class WarehouseController {
     private WarehouseServicesImpl warehouseServices;
 
     @GetMapping
-    public List<Warehouse> getAllProducts() {
+    public List<WarehouseDTO> getAllProducts() {
         return warehouseServices.findAll();
     }
 
     @GetMapping("/{id}")
-    public Warehouse getProductById(@PathVariable Long id) {
+    public WarehouseDTO getProductById(@PathVariable Long id) {
         return warehouseServices.findById(id);
     }
 
     @PostMapping
-    public Warehouse createProduct(@RequestBody Warehouse warehouse) {
+    public WarehouseDTO createProduct(@RequestBody WarehouseDTO warehouse) {
         return warehouseServices.save(warehouse);
     }
 
     @PutMapping("/{id}")
-    public Warehouse updateProduct(@PathVariable Long id, @RequestBody Warehouse warehouse) {
+    public WarehouseDTO updateProduct(@PathVariable Long id, @RequestBody WarehouseDTO warehouse) {
         return warehouseServices.update(id, warehouse);
     }
 
