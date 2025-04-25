@@ -1,9 +1,10 @@
 package com.inventoryapp.dtos;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+
 
 @Getter
 @Setter
@@ -15,13 +16,16 @@ public class ProductDTO {
     private String code;
     private String description;
     private Double price;
-    private int quantity;
+    private Double costPrice;
+    private int stock;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date expDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createdAt;
     private String name;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date dateEntry;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date dateExit;
     private Long categoryId; // Solo el ID, no el objeto completo
     private Long warehouseId;
     private Boolean available;
 }
+
+

@@ -71,11 +71,12 @@ public class ProductServicesImpl implements ProductServices {
                 .available(product.getAvailable())
                 .code(product.getCode())
                 .name(product.getName())
-                .quantity(product.getQuantity())
+                .stock(product.getStock())
+                .costPrice(product.getCostPrice())
+                .expDate(product.getExpDate())
+                .createdAt(new Date())
                 .description(product.getDescription())
                 .warehouse(warehouse)
-                .dateEntry(new Date())
-                .dateExit(product.getDateExit())
                 .category(category)
                 .build();
 
@@ -93,13 +94,15 @@ public class ProductServicesImpl implements ProductServices {
         productEntity = Product.builder()
                 .id(id)
                 .price(product.getPrice())
+                .costPrice(product.getCostPrice())
                 .available(product.getAvailable())
                 .code(product.getCode())
                 .name(product.getName())
-                .quantity(product.getQuantity())
+                .stock(product.getStock())
+                .createdAt(new Date())
+                .expDate(product.getExpDate())
                 .description(product.getDescription())
                 .warehouse(warehouse)
-                .dateExit(product.getDateExit())
                 .category(category)
                 .build();
 

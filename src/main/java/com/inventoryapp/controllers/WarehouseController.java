@@ -3,6 +3,8 @@ package com.inventoryapp.controllers;
 import com.inventoryapp.dtos.WarehouseDTO;
 import com.inventoryapp.services.WarehouseServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,27 +17,51 @@ public class WarehouseController {
     private WarehouseServicesImpl warehouseServices;
 
     @GetMapping
-    public List<WarehouseDTO> getAllProducts() {
-        return warehouseServices.findAll();
+    public ResponseEntity<?> getAllWarehouses() {
+        if(warehouseServices.findAll().isEmpty()) {
+           return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else{
+            return new ResponseEntity<>(warehouseServices.findAll(), HttpStatus.OK);
+        }
     }
 
     @GetMapping("/{id}")
-    public WarehouseDTO getProductById(@PathVariable Long id) {
-        return warehouseServices.findById(id);
+    public ResponseEntity<?> getWarehouseById(@PathVariable Long id) {
+        WarehouseDTO warehouseDTO = warehouseServices.findById(id);
+        if(warehouseDTO != null) {
+            return new ResponseEntity<>(warehouseDTO, HttpStatus.OK);
+        } else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping
-    public WarehouseDTO createProduct(@RequestBody WarehouseDTO warehouse) {
-        return warehouseServices.save(warehouse);
+    public ResponseEntity<?> createWarehouse(@RequestBody WarehouseDTO warehouse) {
+        WarehouseDTO warehouseDTO = warehouseServices.save(warehouse);
+        if(warehouseDTO != null) {
+            return new ResponseEntity<>(warehouseDTO, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping("/{id}")
-    public WarehouseDTO updateProduct(@PathVariable Long id, @RequestBody WarehouseDTO warehouse) {
-        return warehouseServices.update(id, warehouse);
+    public ResponseEntity<?> updateWarehouse(@PathVariable Long id, @RequestBody WarehouseDTO warehouse) {
+        WarehouseDTO warehouseDTO = warehouseServices.update(id, warehouse);
+        if(warehouseDTO != null) {
+            return new ResponseEntity<>(warehouseDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @DeleteMapping("/{id}")
-    public String deleteProduct(@PathVariable Long id) {
-        return warehouseServices.delete(id);
+    public ResponseEntity<?> deleteWarehouse(@PathVariable Long id) {
+        String message = warehouseServices.delete(id);
+        if(message != null) {
+            return new ResponseEntity<>(message,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

@@ -1,11 +1,10 @@
 package com.inventoryapp.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -25,12 +24,17 @@ public class Product {
 
     private Double price;
 
-    private int quantity;
+    private Double costPrice;
+
+    private int stock;
 
     private String name;
-    private Date dateEntry;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date dateExit;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date expDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createdAt;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
