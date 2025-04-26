@@ -1,0 +1,930 @@
+{
+	"info": {
+		"_postman_id": "90cb03a2-b7ac-4a89-886d-1f10534ed4ca",
+		"name": "inventario_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33119779"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"P123\",\r\n    \"description\": \"Railway\",\r\n    \"price\": 49.99,\r\n    \"costPrice\": 39.99,\r\n    \"stock\": 0,\r\n    \"expDate\": null,\r\n    \"createdAt\": \"2025-04-24T16:05:02.810+00:00\",\r\n    \"name\": \"Producto X\",\r\n    \"categoryId\": 1,\r\n    \"warehouseId\": 1,\r\n    \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"P123\",\r\n    \"description\": \"Producto de Telefonos Moviles\",\r\n    \"price\": 49.99,\r\n    \"costPrice\": 39.99,\r\n    \"stock\": 0,\r\n    \"expDate\": null,\r\n    \"createdAt\": \"2025-04-24T20:08:48.756+00:00\",\r\n    \"name\": \"Producto X\",\r\n    \"categoryId\": 1,\r\n    \"warehouseId\": 1,\r\n    \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByName",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product/byName?name=Producto X",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product",
+								"byName"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Producto X"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product/byCode?code=p124",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product",
+								"byCode"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "p124"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByCategory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryName\":\"Electrodomestico\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/product/byCategory?categoryName=Electrodomestico",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"product",
+								"byCategory"
+							],
+							"query": [
+								{
+									"key": "categoryName",
+									"value": "Electrodomestico"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/category",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/category/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Alimentos\",\r\n    \"description\" : \"productos alimenticios\",\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/category",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alimentos\",\r\n    \"description\": \"producto alimenticio\",\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/category/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/category/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/user",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/user/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Alex\",\r\n    \"username\":\"alex.henriquez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/user",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alexxx\",\r\n    \"username\": \"alex.henriquez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/user/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/user/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/warehouse",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/warehouse/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"warehouse",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Warehouse B002\",\r\n        \"level\": \"B24\",\r\n        \"description\": \"Almacen ubicado en la Churchil\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/warehouse",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Warehouse B002\",\r\n        \"level\": \"B24\",\r\n        \"description\": \"Almacen ubicado en la Churchill\"\r\n}  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/warehouse/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"warehouse",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/warehouse/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"warehouse",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inventory",
+			"item": [
+				{
+					"name": "saveEntry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"entry\",\r\n  \"quantity\": 100,\r\n  \"userId\": 1,\r\n  \"productId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/inventory/entry",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"inventory",
+								"entry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveExit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"exit\",\r\n  \"quantity\": 90,\r\n  \"userId\": 1,\r\n  \"productId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/inventory/exit",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"inventory",
+								"exit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/inventory",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/inventory/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"inventory",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEntry",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"type\": \"ENTRY\",\r\n        \"quantity\": 45,\r\n        \"date\": \"2025-04-24T20:52:32.731+00:00\",\r\n        \"userId\": 1,\r\n        \"productId\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/inventory/updateEntry/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"inventory",
+								"updateEntry",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"type\": \"EXIT\",\r\n        \"quantity\": 100,\r\n        \"date\": \"2025-04-24T20:52:32.731+00:00\",\r\n        \"userId\": 1,\r\n        \"productId\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inventory-management-app-7rb0.onrender.com/v1/inventory/updateExit/:id",
+							"protocol": "https",
+							"host": [
+								"inventory-management-app-7rb0",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"v1",
+								"inventory",
+								"updateExit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
