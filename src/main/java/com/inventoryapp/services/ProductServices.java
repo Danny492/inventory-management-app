@@ -9,9 +9,9 @@ public interface ProductServices {
 
     List<ProductDTO>  findAll();
     ProductDTO findById(Long id);
-    Product findByName(String name);
-    Product findByCode(String code);
-    List<Product> findByCategory(String category);
+    ProductDTO findByName(String name);
+    ProductDTO findByCode(String code);
+    List<ProductDTO> findByCategory(String category);
     ProductDTO save(ProductDTO product);
     ProductDTO update(Long id, ProductDTO product);
     String delete(Long id);

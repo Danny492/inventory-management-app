@@ -46,19 +46,19 @@ public class ProductServicesImpl implements ProductServices {
     }
 
     @Override
-    public Product findByName(String name) {
-        return productRepository.findByName(name);
+    public ProductDTO findByName(String name) {
+        return modelMapper.map(productRepository.findByName(name), ProductDTO.class);
     }
 
     @Override
-    public Product findByCode(String code) {
-        return productRepository.findByCode(code);
+    public ProductDTO findByCode(String code) {
+        return modelMapper.map(productRepository.findByCode(code), ProductDTO.class);
     }
 
     @Override
-    public List<Product> findByCategory(String categoryName) {
+    public List<ProductDTO> findByCategory(String categoryName) {
         Category category = categoryRepository.findByName(categoryName);
-        return productRepository.findByCategory(category);
+        return productRepository.findByCategory(category).stream().map(product -> modelMapper.map(product, ProductDTO.class)).toList();
     }
 
     @Override

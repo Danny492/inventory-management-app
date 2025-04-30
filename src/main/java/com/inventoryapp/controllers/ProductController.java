@@ -69,19 +69,34 @@ public class ProductController {
         }
     }
 
-//    @GetMapping("/byName")
-//    public ProductEntity getProductByName(@RequestParam String name) {
-//        return productServices.findByName(name);
-//    }
-//
-//    @GetMapping("/byCode")
-//    public ProductEntity getProductByCode(@RequestParam String code) {
-//        return productServices.findByCode(code);
-//    }
-//
-//    @GetMapping("/byCategory")
-//    public List<ProductEntity> getProductByCategory(@RequestParam String categoryName) {
-//        return productServices.findByCategory(categoryName);
-//    }
+    @GetMapping("/byName")
+    public ResponseEntity<?> getProductByName(@RequestParam String name) {
+        ProductDTO productDTO = productServices.findByName(name);
+        if(productDTO != null) {
+            return new ResponseEntity<>(productDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/byCode")
+    public ResponseEntity<?> getProductByCode(@RequestParam String code) {
+        ProductDTO productDTO = productServices.findByCode(code);
+        if( productDTO != null) {
+            return new ResponseEntity<>(productDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/byCategory")
+    public ResponseEntity<?> getProductByCategory(@RequestParam String categoryName) {
+        List<ProductDTO> productDTOList = productServices.findByCategory(categoryName);
+        if (productDTOList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else{
+            return new ResponseEntity<>(productDTOList, HttpStatus.OK);
+        }
+    }
 
 }

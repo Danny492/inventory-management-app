@@ -23,6 +23,8 @@ public class InventoryMovement {
 
     private int quantity;
 
+    private String Observations;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
