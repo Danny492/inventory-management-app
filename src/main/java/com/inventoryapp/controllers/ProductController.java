@@ -31,7 +31,9 @@ public class ProductController {
 
     @GetMapping("/getById/{id}")
     public ResponseEntity<?> getProductById(@PathVariable Long id) {
+        logger.info("Get product by id: " + id);
         ProductDTO productDTO = productServices.findById(id);
+        logger.info("Get product by id: " + productDTO);
         if(productDTO != null) {
             return new ResponseEntity<>(productDTO, HttpStatus.OK);
         } else{
