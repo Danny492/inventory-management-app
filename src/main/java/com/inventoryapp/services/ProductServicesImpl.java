@@ -45,9 +45,28 @@ public class ProductServicesImpl implements ProductServices {
         return modelMapper.map(product, ProductDTO.class);
     }
 
+//    Creo que tenemmos un problema con el model mapper. Necesitamos revisarlo
+    // revisar que el dto tenga la variable observation
     @Override
     public ProductDTO findByName(String name) {
-        return modelMapper.map(productRepository.findByName(name), ProductDTO.class);
+        Product p = productRepository.findByName(name);
+
+        ProductDTO productDTO = ProductDTO.builder()
+                .id(p.getId())
+                .price(p.getPrice())
+                .available(p.getAvailable())
+                .code(p.getCode())
+                .name(p.getName())
+                .stock(p.getStock())
+                .costPrice(p.getCostPrice())
+                .expDate(p.getExpDate())
+                .createdAt(p.getCreatedAt())
+                .description(p.getDescription())
+                .warehouseId(p.getWarehouse().getId())
+                .categoryId(p.getCategory().getId())
+                .build();
+
+        return productDTO;
     }
 
     @Override
