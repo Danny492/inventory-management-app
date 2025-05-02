@@ -69,7 +69,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/byName")
+    @GetMapping("/byName/")
     public ResponseEntity<?> getProductByName(@RequestParam String name) {
         ProductDTO productDTO = productServices.findByName(name);
         if(productDTO != null) {
@@ -79,7 +79,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/byCode")
+    @GetMapping("/byCode/")
     public ResponseEntity<?> getProductByCode(@RequestParam String code) {
         ProductDTO productDTO = productServices.findByCode(code);
         if( productDTO != null) {
@@ -89,7 +89,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/byCategory")
+    @GetMapping("/byCategory/")
     public ResponseEntity<?> getProductByCategory(@RequestParam String categoryName) {
         List<ProductDTO> productDTOList = productServices.findByCategory(categoryName);
         if (productDTOList.isEmpty()) {
