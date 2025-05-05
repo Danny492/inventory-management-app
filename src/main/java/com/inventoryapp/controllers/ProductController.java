@@ -71,8 +71,8 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/byName/")
-    public ResponseEntity<?> getProductByName(@RequestParam String name) {
+    @GetMapping("/byName/{name}")
+    public ResponseEntity<?> getProductByName(@PathVariable String name) {
         ProductDTO productDTO = productServices.findByName(name);
         if(productDTO != null) {
             return new ResponseEntity<>(productDTO, HttpStatus.OK);
@@ -81,8 +81,8 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/byCode/")
-    public ResponseEntity<?> getProductByCode(@RequestParam String code) {
+    @GetMapping("/byCode/{code}")
+    public ResponseEntity<?> getProductByCode(@PathVariable String code) {
         ProductDTO productDTO = productServices.findByCode(code);
         if( productDTO != null) {
             return new ResponseEntity<>(productDTO, HttpStatus.OK);
@@ -91,8 +91,8 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/byCategory/")
-    public ResponseEntity<?> getProductByCategory(@RequestParam String categoryName) {
+    @GetMapping("/byCategory/{category}")
+    public ResponseEntity<?> getProductByCategory(@PathVariable String categoryName) {
         List<ProductDTO> productDTOList = productServices.findByCategory(categoryName);
         if (productDTOList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
