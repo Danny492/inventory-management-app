@@ -10,6 +10,7 @@ com\inventoryapp\services\UserServices.class
 com\inventoryapp\dtos\CategoryDTO.class
 com\inventoryapp\services\ProductServices.class
 com\inventoryapp\services\WarehouseServicesImpl.class
+com\inventoryapp\entities\Return.class
 com\inventoryapp\controllers\CategoryController.class
 com\inventoryapp\dtos\WarehouseDTO.class
 com\inventoryapp\controllers\UserController.class
