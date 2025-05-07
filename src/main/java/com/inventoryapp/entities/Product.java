@@ -18,6 +18,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String code;
 
     private String description;
@@ -28,6 +29,7 @@ public class Product {
 
     private int stock;
 
+    @Column(unique = true, nullable = false)
     private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
